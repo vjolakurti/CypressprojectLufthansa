@@ -1,4 +1,4 @@
-import { loginPage } from "../../pages/loginPage"
+import { loginPage } from "../../pages/loginLogoutPage"
 
 describe("Login test", () => {
  
