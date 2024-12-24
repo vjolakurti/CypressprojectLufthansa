@@ -1,6 +1,6 @@
-import { loginPage } from '../pages/loginPage';
-import { dashboardPage } from '../pages/dashboardPage';
-import { wishlistPage } from '../pages/wishlistPage'
+import { loginPage } from '../../pages/loginLogoutPage';
+import { dashboardPage } from '../../pages/dashboardPage';
+import { wishlistPage } from '../../pages/wishlistPage'
 
 describe('Wishlist Test', () => {
   before(() => {

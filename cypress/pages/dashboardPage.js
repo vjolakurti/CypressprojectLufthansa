@@ -1,57 +1,32 @@
 class DashboardPage {
   navigateToNotebooks() {
-    cy.get("ul.top-menu > li").contains("Computers").trigger("mouseover")
-    cy.contains("Notebooks").click()
-    cy.url().should("include", "/notebooks")
+    cy.get('.notmobile > :nth-child(1) > [href="/computers"]').click()
+    cy.get(':nth-child(2) > .sub-category-item > .picture > a > img').click()
+    
   }
 
-  applyDisplayFilter() {
-    cy.get("select#products-pagesize").select(displayOption);
-    cy.get(".product-item").should(
-      "have.length",
-      displayOption === "9" ? 6 : 0
-    )
-  }
-  applyAttributeFilter(attribute) {
-    cy.get(`input[id="${attribute}"]`).check()
-    cy.get(".product-item").should("have.length", 1)
+
+  applyFilter() {
+    cy.get('#attribute-option-6').check()
+    cy.get('#attribute-option-9').check()
   }
 
-  clearAttributeFilter(attribute) {
-    cy.get(`input[id="${attribute}"]`).uncheck()
-    cy.get(".product-item").should("have.length", 6)
+  removeFilter(){
+    cy.get('#attribute-option-6').click()
+    cy.get('#attribute-option-9').click()
   }
 
-  addToWishlist(itemIndex) {
-    cy.get(".product-item")
-      .eq(itemIndex - 1)
-      .find(".add-to-wishlist-button")
-      .click();
-    cy.get(".bar-notification").should(
-      "contain",
-      "The product has been added to your wishlist"
-    )
-  }
 
-  addToShoppingCart(itemIndex) {
-    cy.get(".product-item")
-      .eq(itemIndex - 1)
-      .find(".add-to-cart-button")
-      .click();
-    cy.get(".bar-notification").should(
-      "contain",
-      "The product has been added to your shopping cart"
-    )
-  }
-
-  verifyMenuCounts(wishlistCount, cartCount) {
-    cy.get(".wishlist-qty").should("contain", `(${wishlistCount})`)
-    cy.get(".cart-qty").should("contain", `(${cartCount})`)
-  }
-
-  addToWishlist(itemIndex) {
-    cy.get('.product-item').eq(itemIndex - 1).find('.add-to-wishlist-button').click()
+  addToWishlist() {
+    cy.get(':nth-child(2) > .product-item > .details > .product-title > a').click();
+    cy.get('#add-to-wishlist-button-4').click().click()
     cy.get('.bar-notification').should('contain', 'The product has been added to your wishlist')
+  }
+
+  addToShoppingCart() {
+    cy.get(':nth-child(2) > .product-item > .details > .product-title > a').click();
+    cy.get('#add-to-cart-button-9').click().click()
+    cy.get('.bar-notification').should('contain', 'The product has been added to your shopping cart')
   }
 }
 

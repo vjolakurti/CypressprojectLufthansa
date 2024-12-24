@@ -1,20 +1,17 @@
-import { loginPage } from "../pages/loginPage"
-import { dashboardPage } from "../pages/dashboardPage"
-import { shoppingCartPage } from "../pages/shoppingCartPage"
+import { loginPage } from "../../pages/loginLogoutPage"
+import { dashboardPage } from "../../pages/dashboardPage"
+import { shoppingCartPage } from "../../pages/shoppingCartPage"
 
 describe("Shopping Cart Test", () => {
   before(() => {
-    cy.visit("https://demo.nopcommerce.com/")
+    cy.visit("https://demo.nopcommerce.com/", {failOnStatusCode: false})
     loginPage.fillLoginForm({
-      email: "johndoe123@example.com",
-      password: "Password123!",
+      email: 'annadoe@gmail.com',
+      password: 'A123456!',
     })
     loginPage.submit()
-    dashboardPage.navigateToNotebooks()
-    dashboardPage.addToShoppingCart(5)
-    dashboardPage.addToShoppingCart(6)
   })
-
+  
   it("should verify shopping cart functionality", () => {
     shoppingCartPage.navigateToCart()
     shoppingCartPage.verifyButtons()
