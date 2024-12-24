@@ -6,8 +6,9 @@ class WishlistPage {
     }
   
     
-    verifyWishlistItemCount(expectedCount) {
-      cy.get('.wishlist-item').should('have.length', expectedCount)
+    verifyWishlistItemCount(expectedItemCount) {
+      cy.get('.wishlist-content .table-wrapper .cart tbody tr')
+        .should('have.length', expectedItemCount);
     }
   
   

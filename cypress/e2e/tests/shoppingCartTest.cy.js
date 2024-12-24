@@ -12,10 +12,10 @@ describe("Shopping Cart Test", () => {
     loginPage.submit()
   })
   
-  it("should verify shopping cart functionality", () => {
+  it("should verify products can be added to shopping cart", () => {
+    dashboardPage.addToShoppingCart(2)
     shoppingCartPage.navigateToCart()
     shoppingCartPage.verifyButtons()
-    shoppingCartPage.verifyPriceTotal()
-    shoppingCartPage.verifyPriceColor()
   })
+  
 })

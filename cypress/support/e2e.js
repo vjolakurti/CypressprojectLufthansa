@@ -16,18 +16,3 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import 'cypress-mochawesome-reporter/register'
-beforeEach(() => {
-    // Modify User-Agent for every test
-    cy.visit('https://demo.nopcommerce.com/', {failOnStatusCode: false}, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36',
-      },
-    });
-  });
-  Cypress.Cookies.defaults({
-    preserve: ['__cfduid', '__cf_bm'], // Cloudflare cookies
-  });
-  before(() => {
-    cy.setCookie('__cfduid', 'your-cookie-value');
-    cy.setCookie('__cf_bm', 'your-cookie-value');
-  });

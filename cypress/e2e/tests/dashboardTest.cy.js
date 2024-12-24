@@ -19,10 +19,8 @@ describe("Dashboard test", () => {
    })
 
   it("should add items to Wishlist and Shopping Cart", () => {
-   dashboardPage.addToWishlist()
-   dashboardPage.addToShoppingCart()
-  //   dashboardPage.addToShoppingCart(5)
-  //   dashboardPage.addToShoppingCart(6)
-  //   dashboardPage.verifyMenuCounts(2, 2)
+   dashboardPage.addToWishlist(2)
+   dashboardPage.addToShoppingCart(2)
+  
    })
 })

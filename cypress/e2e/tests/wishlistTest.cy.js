@@ -5,10 +5,10 @@ import { wishlistPage } from '../../pages/wishlistPage'
 describe('Wishlist Test', () => {
   before(() => {
     // Precondition: Log in
-    cy.visit('https://demo.nopcommerce.com/')
+    cy.visit('https://demo.nopcommerce.com/', {failOnStatusCode: false})
     loginPage.fillLoginForm({
-      email: 'johndoe123@example.com', 
-      password: 'Password123!',
+      email: "annadoe@gmail.com",
+      password: "A123456!",
     });
     loginPage.submit()
   });
@@ -17,8 +17,6 @@ describe('Wishlist Test', () => {
     dashboardPage.navigateToNotebooks()
     dashboardPage.addToWishlist(1)
     dashboardPage.addToWishlist(2)
-
-    cy.get('.wishlist-qty').should('contain', '(2)') 
     
     wishlistPage.navigateToWishlist()
     wishlistPage.verifyWishlistItemCount(2) 

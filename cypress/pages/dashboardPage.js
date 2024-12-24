@@ -17,17 +17,19 @@ class DashboardPage {
   }
 
 
-  addToWishlist() {
-    cy.get(':nth-child(2) > .product-item > .details > .product-title > a').click();
-    cy.get('#add-to-wishlist-button-4').click().click()
+  addToWishlist(index) {
+    cy.get('.product-item .product-title a').eq(index).click();
+    cy.get('[id^="add-to-wishlist-button"]').click().click()
     cy.get('.bar-notification').should('contain', 'The product has been added to your wishlist')
   }
 
-  addToShoppingCart() {
-    cy.get(':nth-child(2) > .product-item > .details > .product-title > a').click();
-    cy.get('#add-to-cart-button-9').click().click()
+  addToShoppingCart(index) {
+    cy.get('.product-item .product-title a').eq(index).click();
+    cy.get('[id^="add-to-cart-button"]').click().click()
     cy.get('.bar-notification').should('contain', 'The product has been added to your shopping cart')
   }
+
+
 }
 
 export const dashboardPage = new DashboardPage()
